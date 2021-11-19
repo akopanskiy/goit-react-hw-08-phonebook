@@ -1,0 +1,22 @@
+.siteNav {
+  display: flex;
+  margin-left: auto;
+}
+.siteNavList {
+  display: flex;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.item {
+  margin-right: 50px;
+}
+.link {
+  position: relative;
+
+  display: block;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  text-decoration: none;
+}
