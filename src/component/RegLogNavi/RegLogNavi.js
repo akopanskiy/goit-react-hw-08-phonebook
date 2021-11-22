@@ -1,30 +1,39 @@
 import { NavLink } from 'react-router-dom';
 import styles from './RegLogNavi.module.css';
 
+import Nav from 'react-bootstrap/Nav';
+
 const RegLogNavi = () => {
   return (
     <>
       <nav className={styles.siteNav}>
-        <ul className={styles.siteNavList}>
-          <li className={styles.item}>
+        <Nav.Item>
+          <Nav.Link eventKey="link-3">
             <NavLink
               to="/register"
               className={styles.link}
-              style={({ isActive }) => ({ color: isActive ? 'blue' : 'black' })}
+              style={({ isActive }) => ({
+                color: isActive ? 'tomato' : 'black',
+              })}
             >
               Registration
             </NavLink>
-          </li>
-          <li className={styles.item}>
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item>
+          <Nav.Link eventKey="link-4">
             <NavLink
               to="/login"
               className={styles.link}
-              style={({ isActive }) => ({ color: isActive ? 'blue' : 'black' })}
+              style={({ isActive }) => ({
+                color: isActive ? 'tomato' : 'black',
+              })}
             >
               Login
             </NavLink>
-          </li>
-        </ul>
+          </Nav.Link>
+        </Nav.Item>
       </nav>
     </>
   );

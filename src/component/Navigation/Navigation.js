@@ -3,36 +3,39 @@ import { authSelectors } from '../../redux/auth';
 import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
+import Nav from 'react-bootstrap/Nav';
+
 const Navigation = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <>
-      <nav className={styles.siteNav}>
-        <ul className={styles.siteNavList}>
-          <li className={styles.item}>
+      <Nav.Item>
+        <Nav.Link eventKey="link-1">
+          <NavLink
+            to="/"
+            className={styles.link}
+            style={({ isActive }) => ({ color: isActive ? 'tomato' : 'black' })}
+          >
+            Home
+          </NavLink>
+        </Nav.Link>
+      </Nav.Item>
+
+      {isLoggedIn && (
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">
             <NavLink
-              to="/"
+              to="/contacts"
               className={styles.link}
-              style={({ isActive }) => ({ color: isActive ? 'blue' : 'black' })}
+              style={({ isActive }) => ({
+                color: isActive ? 'tomato' : 'black',
+              })}
             >
-              Home
+              Contacts
             </NavLink>
-          </li>
-          {isLoggedIn && (
-            <li className={styles.item}>
-              <NavLink
-                to="/contacts"
-                className={styles.link}
-                style={({ isActive }) => ({
-                  color: isActive ? 'blue' : 'black',
-                })}
-              >
-                Contacts
-              </NavLink>
-            </li>
-          )}
-        </ul>
-      </nav>
+          </Nav.Link>
+        </Nav.Item>
+      )}
     </>
   );
 };

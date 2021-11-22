@@ -5,15 +5,17 @@ import { useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/auth-selectors';
 import styles from './Container.module.css';
 
+import { Nav } from 'react-bootstrap';
+
 const Container = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <>
-      <div className={styles.container}>
+      <Nav variant="tabs" defaultActiveKey="/" className={styles.container}>
         <Navigation />
 
         {isLoggedIn ? <UserMenu /> : <RegLogNavi />}
-      </div>
+      </Nav>
     </>
   );
 };

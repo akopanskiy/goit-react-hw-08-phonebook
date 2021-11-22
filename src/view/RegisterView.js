@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from '../redux/auth/auth-operations';
+import styles from './ViewsStyles.module.css';
+
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 const RegisterView = () => {
   const [name, setName] = useState('');
@@ -17,6 +21,7 @@ const RegisterView = () => {
         return setEmail(value);
       /* falls through */
       case 'password':
+        // eslint-disable-next-line no-sequences
         return setPassword(value);
       /* falls through */
       default:
@@ -31,33 +36,58 @@ const RegisterView = () => {
     setPassword('');
   };
   return (
-    <div>
-      <h1>Sign in</h1>
-      <form onSubmit={handleSubmit} autoComplete="on">
-        <label>
-          Name
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
-        <label>
-          Email
-          <input
+    <div className={styles.homePage}>
+      <Form
+        onSubmit={handleSubmit}
+        autoComplete="off"
+        className={styles.formReg}
+      >
+        <h1 className={styles.nameReg}>Sign in</h1>
+        <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Label className={styles.labelReg}>Name</Form.Label>
+          <Form.Control
+            className={styles.inputReg}
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            placeholder="Name"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label className={styles.labelReg}>Email address</Form.Label>
+          <Form.Control
+            className={styles.inputReg}
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
+            placeholder="Enter email"
           />
-        </label>
-        <label>
-          Password
-          <input
+          <Form.Text className={styles.textMuted}>
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label className={styles.labelReg}>Password</Form.Label>
+          <Form.Control
+            className={styles.inputReg}
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
+            placeholder="Password"
           />
-        </label>
-        <button type="submit">To register</button>
-      </form>
+        </Form.Group>
+        <Button
+          type="submit"
+          variant="success"
+          className={styles.btnReg}
+          disabled={password === '' ? true : false}
+        >
+          Registration
+        </Button>
+      </Form>
     </div>
   );
 };

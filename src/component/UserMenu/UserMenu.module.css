@@ -10,4 +10,12 @@
   padding-top: 12px;
   padding-bottom: 12px;
   padding-right: 10px;
+  color: rgb(9, 82, 9);
+}
+.buttonLogOut {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  height: 36px;
 }

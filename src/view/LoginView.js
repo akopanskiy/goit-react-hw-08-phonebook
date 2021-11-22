@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from '../redux/auth/auth-operations';
+import styles from './ViewsStyles.module.css';
+
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 const LoginView = () => {
   const [email, setEmail] = useState('');
@@ -28,29 +32,44 @@ const LoginView = () => {
   };
 
   return (
-    <div>
-      <h1>Log in</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email
-          <input
+    <div className={styles.homePage}>
+      <Form
+        onSubmit={handleSubmit}
+        autoComplete="off"
+        className={styles.formReg}
+      >
+        <h1 className={styles.nameReg}>Log in</h1>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label className={styles.labelReg}>Email address</Form.Label>
+          <Form.Control
+            className={styles.inputReg}
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
+            placeholder="Enter email"
           />
-        </label>
-        <label>
-          Password
-          <input
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label className={styles.labelReg}>Password</Form.Label>
+          <Form.Control
+            className={styles.inputReg}
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
+            placeholder="Password"
           />
-        </label>
-        <button type="submit"> Log in</button>
-      </form>
+        </Form.Group>
+        <Button
+          type="submit"
+          variant="success"
+          className={styles.btnReg}
+          disabled={password === '' ? true : false}
+        >
+          Login
+        </Button>
+      </Form>
     </div>
   );
 };

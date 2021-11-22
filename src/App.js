@@ -7,6 +7,7 @@ import Container from './component/Container';
 import PrivateRoute from './component/PrivateRoute';
 import PublicRoute from './component/PublicRoute';
 import { authOperations } from './redux/auth';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const HomePage = lazy(
   () => import('./view/HomeView') /* webpackChunkName: "home-view" */,
