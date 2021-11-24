@@ -10,29 +10,29 @@ const Navigation = () => {
   return (
     <>
       <Nav.Item>
-        <Nav.Link eventKey="link-1">
-          <NavLink
-            to="/"
-            className={styles.link}
-            style={({ isActive }) => ({ color: isActive ? 'tomato' : 'black' })}
-          >
-            Home
-          </NavLink>
+        <Nav.Link
+          eventKey="link-1"
+          as={NavLink}
+          to="/"
+          className={styles.link}
+          style={({ isActive }) => ({ color: isActive ? 'tomato' : 'black' })}
+        >
+          Home
         </Nav.Link>
       </Nav.Item>
 
       {isLoggedIn && (
         <Nav.Item>
-          <Nav.Link eventKey="link-2">
-            <NavLink
-              to="/contacts"
-              className={styles.link}
-              style={({ isActive }) => ({
-                color: isActive ? 'tomato' : 'black',
-              })}
-            >
-              Contacts
-            </NavLink>
+          <Nav.Link
+            eventKey="link-2"
+            as={NavLink}
+            to="/contacts"
+            className={styles.link}
+            style={({ isActive }) => ({
+              color: isActive ? 'tomato' : 'black',
+            })}
+          >
+            Contacts
           </Nav.Link>
         </Nav.Item>
       )}

@@ -35,7 +35,7 @@ const LoginView = () => {
     <div className={styles.homePage}>
       <Form
         onSubmit={handleSubmit}
-        autoComplete="off"
+        autoComplete="on"
         className={styles.formReg}
       >
         <h1 className={styles.nameReg}>Log in</h1>

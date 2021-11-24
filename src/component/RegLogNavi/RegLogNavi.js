@@ -8,30 +8,30 @@ const RegLogNavi = () => {
     <>
       <nav className={styles.siteNav}>
         <Nav.Item>
-          <Nav.Link eventKey="link-3">
-            <NavLink
-              to="/register"
-              className={styles.link}
-              style={({ isActive }) => ({
-                color: isActive ? 'tomato' : 'black',
-              })}
-            >
-              Registration
-            </NavLink>
+          <Nav.Link
+            eventKey="link-3"
+            as={NavLink}
+            to="/register"
+            className={styles.link}
+            style={({ isActive }) => ({
+              color: isActive ? 'tomato' : 'black',
+            })}
+          >
+            Registration
           </Nav.Link>
         </Nav.Item>
 
         <Nav.Item>
-          <Nav.Link eventKey="link-4">
-            <NavLink
-              to="/login"
-              className={styles.link}
-              style={({ isActive }) => ({
-                color: isActive ? 'tomato' : 'black',
-              })}
-            >
-              Login
-            </NavLink>
+          <Nav.Link
+            eventKey="link-4"
+            as={NavLink}
+            to="/login"
+            className={styles.link}
+            style={({ isActive }) => ({
+              color: isActive ? 'tomato' : 'black',
+            })}
+          >
+            Login
           </Nav.Link>
         </Nav.Item>
       </nav>
